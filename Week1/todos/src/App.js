@@ -4,8 +4,7 @@ import Todos from './Todos';
 function App() {
     return (
       <>
-        <Todos />
-        <Todos />
+        <h3> List of Todos </h3> 
         <Todos />
       </>
     );

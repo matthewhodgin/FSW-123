@@ -1,12 +1,15 @@
 function Todos () {
 
     return (
-        <>
-        <input>go to gym</input>
-        <input>do laundry</input>
-        <input>food shopping</input> 
-        <input>do homework</input>
-        </>
+        <ul>
+        <li>
+        <input type="checkbox" /> 
+        <span> goto gym </span>
+        <span> do laundry </span>
+        <span> food shopping </span> 
+        <span> do homework </span>
+        </li>
+        </ul>
     );
 }
 
