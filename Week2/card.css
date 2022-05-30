@@ -1,3 +1,19 @@
-.card {
+.box {
     margin: 50px;
+    background-color: red;
 }
+
+/* .box {
+    margin: 50px;
+    background-color: orange;
+}
+
+.box {
+    margin: 50px;
+    background-color: yellow;
+}
+
+.box {
+    margin: 50px;
+    background-color: green;
+} */
