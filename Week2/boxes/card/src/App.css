@@ -1,0 +1,26 @@
+.card {
+  margin: 15px;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+}
+
+.card1 {
+  background-color: red;
+}
+
+.card2 {
+  background-color: orange;
+}
+
+.card3 {
+  background-color: yellow;
+}
+
+.card4 {
+  background-color: green;
+}
+
+.flex-container {
+  display: flex;
+}
