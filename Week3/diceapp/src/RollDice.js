@@ -9,6 +9,7 @@ class RollDice extends Component{
     sides : ['one', 'two', 'three', 
              'four', 'five', 'six']
   }
+
   constructor(props){
     super(props)
       
@@ -18,18 +19,26 @@ class RollDice extends Component{
       die2 : 'one',
       rolling: false
     }
-    this.roll = this.roll.bind(this)
   }
-  roll(){
+
+  roll=()=>{
     const {sides} = this.props
     this.setState({
       
       // Changing state upon click
-      die1 : sides[Math.floor(Math.random() * sides.length)],
-      die2 : sides[Math.floor(Math.random() * sides.length)],
+
       rolling:true
-    })
-  }
+    },
+    () => {
+      const myTimeout = setTimeout(()=> {
+        console.log("worked")
+        this.setState({
+          die1 : sides[Math.floor(Math.random() * sides.length)],
+          die2 : sides[Math.floor(Math.random() * sides.length)],
+        rolling:false
+      })}, 2000);
+    }
+    )}
   
   render(){
     const handleBtn = this.state.rolling ? 
@@ -45,6 +54,7 @@ class RollDice extends Component{
                 disabled={this.state.rolling} 
                 onClick={this.roll}>
           {this.state.rolling ? 'Rolling' : 'Roll Dice!'}
+
         </button>
       </div>
     )

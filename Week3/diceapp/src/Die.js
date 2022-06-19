@@ -11,8 +11,21 @@ render(){
     // the exactnumber of dots
     return (
             <div>
-                <FontAwesomeIcon icon={ face == "one"?faDiceOne: face == "two"?faDiceTwo: face == "three"?faDiceThree: face == "four"?faDiceFour: face == "five"?faDiceFive: }  className={`Die 
-                ${rolling && 'Die-shaking'}`} />
+                <FontAwesomeIcon icon= { 
+                face == "one"?faDiceOne: 
+                face == "two"?faDiceTwo: 
+                face == "three"?faDiceThree: 
+                face == "four"?faDiceFour: 
+                face == "five"?faDiceFive: 
+                face == "six"?faDiceSix: 
+                ""
+                }
+                style={{
+                    width:275,
+                    height:200,
+                    color:"blue"
+                }}
+                />
             </div >
         )
 }
