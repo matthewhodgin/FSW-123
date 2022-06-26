@@ -17,13 +17,34 @@ export default function searchForm({initalQuery}) {
     }
 }
 
-<div>
-<img src={imgSrc} alt={alt} />
-</div>
+// BrowserRouter
 
-const [imgSrc, setImgSrc] = useState("");
-const [alt, setAlt] = useState("");
+// <Routes>
+//   <Route exact = {true} path = '/' element = {<HomePage />} />
+//   <Route path = '/seachForm' element={<searchForm />} />
+//   <Route path='/search' element={<searchGiphy />} />
+// </Routes>
 
-encodeURIComponent(uriComponent);
+// function getUserInput() {
+//     var inputValue = document
+//       .querySelector(".js-userinput").value;
+//     return inputValue;
+// }
 
+// document.querySelector(".js-go").addEventListener("click", function () {
+//     var inputValue = document
+//       .querySelector(".js-userinput").value;
+//     var userInput = getUserInput();
+//     searchGiphy(userInput);
+// });
+
+// document.querySelector(".js-userinput")
+//   .addEventListener("keyup", function (e) {
+
+//   // If the Key Enter is Pressed
+//   if (e.which === 13) {
+//     var userInput = getUserInput();
+//     searchGiphy(userInput);
+//   }
+// });
 
