@@ -1,28 +1,30 @@
-import TodoList from "./TodoList";
+import { useState } from "react";
 
-export default function TodoForm(props) {
+export default function TodoForm({ submit, text, id }) {
+  const initialInputs = { text: text || "" };
+  const [inputs, setInputs] = useState(initialInputs);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submit(inputs, id);
+    setInputs(initialInputs);
+  };
+
   return (
-    <div className="App">
-      <h3> Todo App </h3>
-      <h4> Add new todos via the input field:</h4>
-      <input type="text" name="Add Todo" /> &nbsp;
-      <input type="submit" value="Add Todo" onclick="return Todo();" />
-
-      <TodoList
-        todos={props.todos}
-        completeTodo={props.completeTodo}
-        deleteTodo={props.deleteTodo}
-        editTodo={props.editTodo}
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="text"
+        value={inputs.text}
+        onChange={handleChange}
+        placeholder="Text"
       />
-    </div>
+      <button> Add Todo </button>
+    </form>
   );
 }
-
-
-// <input
-// type="input"
-// checked={props.todo.isEdited}
-// onChange={() => props.editTodo(props.todo.id)}
-// />
-
-// <button onClick={() => props.editTodo(props.todo.id)}>X</button>

@@ -1,24 +1,45 @@
-function Todos(props) {
-  console.log(props);
-  console.log(props.array);
+import { useState } from "react";
+import TodoForm from "./TodoForm";
 
-  return (
+function Todos({ deleteTodo, editTodo, completeTodo, todo }) {
+  const [editToggle, setEditToggle] = useState(false);
+
+  return !editToggle ? (
     <li
       style={{
-        textDecoration: props.todo.isCompleted ? "line-through" : "none",
+        textDecoration: todo.isCompleted ? "line-through" : "none",
       }}
     >
       <input
         type="checkbox"
-        checked={props.todo.isCompleted}
-        onChange={() => props.completeTodo(props.todo.id)}
+        checked={todo.isCompleted}
+        onChange={() => completeTodo(todo.id)}
       />
-      <span> {props.todo.text} </span> &nbsp;&nbsp;
-      <button onClick={() => props.deleteTodo(props.todo.id)}>X</button>{" "} &nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="submit" id="edit-button">
+      <span> {todo.text} </span> &nbsp;&nbsp;
+      <button onClick={() => deleteTodo(todo.id)}>X</button>{" "}
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button
+        onClick={() => setEditToggle((prevToggle) => !prevToggle)}
+        className="edit-btn"
+      >
         Edit
       </button>
     </li>
+  ) : (
+    <>
+      <TodoForm
+        text={todo.text}
+        id={todo.id}
+        btnText="Submit Edit"
+        submit={(inputs, id) => {
+          editTodo(inputs, id);
+          setEditToggle((prevToggle) => !prevToggle);
+        }}
+      />
+      <button onClick={() => setEditToggle((prevToggle) => !prevToggle)}>
+        Close
+      </button>
+    </>
   );
 }
 

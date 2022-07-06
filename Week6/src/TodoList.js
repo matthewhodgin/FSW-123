@@ -1,4 +1,5 @@
 import Todo from "./Todo";
+import TodoForm from "./TodoForm";
 
 function TodoList(props) {
   console.log(props);
@@ -12,9 +13,8 @@ function TodoList(props) {
     >
       {props.todos.map((todo, index) => {
         return (
-          <div>
+          <div key={index}>
             <Todo
-              key={index}
               todo={todo}
               completeTodo={props.completeTodo}
               deleteTodo={props.deleteTodo}
